@@ -4,7 +4,7 @@ const initialState = {
   status: JSON.parse(localStorage.getItem("user")) || false,
   isLoading: false,
   isError: false,
-  userId: JSON.parse(localStorage.getItem("userID")) || null,
+  y: JSON.parse(localStorage.getItem("userId")) || "",
 };
 
 export const authReducer = (state = initialState, { type, payload }) => {
@@ -13,10 +13,11 @@ export const authReducer = (state = initialState, { type, payload }) => {
       return { ...state, isLoading: true };
     }
     case authAction.SUCCESS: {
-      localStorage.setItem("userId", JSON.stringify(payload))
-      console.log('payload in auth:', payload)
-      localStorage.setItem("auth", true)
-      return { ...state, isLoading: false, status: true, };
+      if (!localStorage.getItem("userId")) {
+        localStorage.setItem("userId", JSON.stringify(payload));
+      }
+
+      return { ...state, isLoading: false, status: true };
     }
     case authAction.FAILURE: {
       return { ...state, isLoading: false, isError: true };
@@ -26,5 +27,3 @@ export const authReducer = (state = initialState, { type, payload }) => {
     }
   }
 };
-
-

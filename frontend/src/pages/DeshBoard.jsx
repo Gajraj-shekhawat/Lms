@@ -7,7 +7,8 @@ import styles from "../styles/DeshBoard.module.css";
 import ClassMap from "./ClassMap";
 
 const DeshBoard = () => {
-  const [open, SetOpen] = useState(false);
+  const [showClass, setShowClass] = useState(false);
+
   const classes = [
     {
       class:
@@ -40,17 +41,21 @@ const DeshBoard = () => {
       assignments: "",
     },
   ];
-  const userId = JSON.parse(localStorage.getItem("userId"));
-  console.log('userId local:', userId)
+  const x = JSON.parse(localStorage.getItem("userId"));
+
   const dispatch = useDispatch();
-  const store = useSelector((store) => store.dashboard.data);
+  const store = useSelector((store) => store.dashboard);
   console.log("store:", store);
 
   useEffect(() => {
-    if (userId) {
-      dispatch(userData(userId));
+    if (x) {
+      dispatch(userData(x));
     }
   }, []);
+
+  if (!store.data) {
+    return <div>lodinggg....</div>;
+  }
   return (
     <>
       <Navbar />
@@ -63,12 +68,11 @@ const DeshBoard = () => {
                   value={{
                     el,
                     i,
-                    SetOpen,
-                    open,
-                    a:store?.a[i+1],
-                    l:store?.l[i+1]
+                    showClass,
+                    setShowClass,
+                    lec: store?.data[`l${i + 1}`],
+                    ass: store?.data[`a${i + 1}`],
                   }}
-                  
                 />
               </div>
             );
@@ -85,7 +89,7 @@ const DeshBoard = () => {
               fontSize: "27px",
             }}
           >
-            Classes score  %
+            Classes score %
           </div>
         </div>
       </div>

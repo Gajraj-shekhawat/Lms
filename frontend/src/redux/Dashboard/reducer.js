@@ -1,11 +1,10 @@
 import { dashBoard_Action } from "./actions";
 
-
 const initialState = {
   isLoading: false,
   isError: false,
-  // userId: JSON.parse(localStorage.getItem("userID")) || null,
-  data:null
+  userId: JSON.parse(localStorage.getItem("userId")) || null,
+  data: null,
 };
 
 export const dashboard_Reducer = (state = initialState, { type, payload }) => {
@@ -13,10 +12,9 @@ export const dashboard_Reducer = (state = initialState, { type, payload }) => {
     case dashBoard_Action.REQUEST: {
       return { ...state, isLoading: true };
     }
-    case dashBoard_Action.SUCCESS: {
-      
-      console.log('payload:', payload)
-      return { ...state, isLoading: false,  data: payload[0] };
+    case dashBoard_Action.SUCCESS1: {
+      console.log(payload);
+      return { ...state, isLoading: false, data: payload[0] };
     }
     case dashBoard_Action.FAILURE: {
       return { ...state, isLoading: false, isError: true };
@@ -25,5 +23,4 @@ export const dashboard_Reducer = (state = initialState, { type, payload }) => {
       return state;
     }
   }
-  
 };

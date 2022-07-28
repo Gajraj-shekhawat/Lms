@@ -1,31 +1,35 @@
-import axios from 'axios'
+import axios from "axios";
 export const dashBoard_Action = {
-    REQUEST: 'REQUEST',
-    SUCCESS: 'SUCCESS',
-    FAILURE: 'FAILURE',
-}
+  REQUEST: "REQUEST",
+  SUCCESS1: "SUCCESS",
+  FAILURE: "FAILURE",
+};
 
 export const dashboard_request = () => ({
-    type: dashBoard_Action.REQUEST,
+  type: dashBoard_Action.REQUEST,
 });
 
-
-export const dashboard_success = (payload) => ({
-    type: dashBoard_Action.SUCCESS,
-    payload,
+export const dashboard_success1 = (payload) => ({
+  type: dashBoard_Action.SUCCESS1,
+  payload,
 });
 
 export const dashboard_failure = () => ({
-    type: dashBoard_Action.FAILURE,
+  type: dashBoard_Action.FAILURE,
 });
 
-export const userData= (_id)=>(dispatch)=>{
-    dispatch(dashboard_request())
-    axios.get(`http://localhost:8080/user/${_id}`).then((res) => {
-        console.log('res: for get', res)
+export const userData = (userId) => (dispatch) => {
+  // console.log("userIdssssssssss:", userId);
+  // dispatch(dashboard_request());
+  axios
+    .get(`http://localhost:8080/user/${userId}`)
+    .then((res) => {
+      dispatch(dashboard_success1(res.data));
 
-        dispatch(dashboard_success(res.data))
-    }).catch(() => {
-        dispatch(dashboard_failure())
+      //      type: dashBoard_Action.SUCCESS1,
+      // payload,
     })
-}
+    .catch(() => {
+      dispatch(dashboard_failure());
+    });
+};
