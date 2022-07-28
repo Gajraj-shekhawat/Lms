@@ -4,6 +4,7 @@ import style from "../styles/HomePage.module.css";
 import Navbar from "../components/Navbar";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   var arr = [
@@ -43,7 +44,10 @@ const HomePage = () => {
     showThumbs: false,
     showStatus: false,
   };
-
+  const navigate = useNavigate();
+  const courseBuy = (course) => {
+    navigate(`/signup/${course}`);
+  };
   return (
     <div>
       <Navbar />
@@ -64,9 +68,9 @@ const HomePage = () => {
         </Carousel>
       </div>
       <div className={style.CourseMainDiv}>
-        {arr.map((el) => {
+        {arr.map((el, i) => {
           return (
-            <div className={style.coursediv}>
+            <div className={style.coursediv} key={i}>
               <div>
                 <img src={el.img} alt="" />
               </div>
@@ -77,7 +81,14 @@ const HomePage = () => {
 
               <span className={style.class}>Course class {el.totleClass}</span>
               <p>{el.price}</p>
-              <button className={style.buttonBuy}>Buy</button>
+              <button
+                className={style.buttonBuy}
+                onClick={() => {
+                  courseBuy(el.name);
+                }}
+              >
+                Buy
+              </button>
             </div>
           );
         })}

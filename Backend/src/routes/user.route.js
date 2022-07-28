@@ -36,6 +36,7 @@ authRouter.post('/signin', async (req, res) => {
 authRouter.get('/:_id', async (req, res)=>{
     const {_id}= req.params
     const user = await UserModel.find({_id})
+    console.log('user:', user)
     res.status(200).send(user)
 })
 

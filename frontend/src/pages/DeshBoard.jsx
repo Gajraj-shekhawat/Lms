@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../components/Navbar";
+import { userData } from "../redux/Dashboard/actions";
 import styles from "../styles/DeshBoard.module.css";
 import ClassMap from "./ClassMap";
 
 const DeshBoard = () => {
   const [open, SetOpen] = useState(false);
-  const [score, setScore] = useState(0);
-  const [count, setcount] = useState(0);
   const classes = [
     {
       class:
@@ -39,6 +40,17 @@ const DeshBoard = () => {
       assignments: "",
     },
   ];
+  const userId = JSON.parse(localStorage.getItem("userId"));
+  console.log('userId local:', userId)
+  const dispatch = useDispatch();
+  const store = useSelector((store) => store.dashboard.data);
+  console.log("store:", store);
+
+  useEffect(() => {
+    if (userId) {
+      dispatch(userData(userId));
+    }
+  }, []);
   return (
     <>
       <Navbar />
@@ -53,12 +65,10 @@ const DeshBoard = () => {
                     i,
                     SetOpen,
                     open,
-                    setScore,
-                    score,
-                    classes,
-                    count,
-                    setcount,
+                    a:store?.a[i+1],
+                    l:store?.l[i+1]
                   }}
+                  
                 />
               </div>
             );
@@ -75,7 +85,7 @@ const DeshBoard = () => {
               fontSize: "27px",
             }}
           >
-            Classes score {score} %
+            Classes score  %
           </div>
         </div>
       </div>

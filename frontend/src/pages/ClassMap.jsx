@@ -5,27 +5,19 @@ import { BsCheckCircle } from "react-icons/bs";
 
 import { Link } from "react-router-dom";
 const ClassMap = (props) => {
-  const [see, Setsee] = useState(false);
-
+  
   let el = props.value.el;
   let i = props.value.i;
-  //   let classes = props.value.classes;
-
   let open = props.value.open;
-  //   let setScore = props.value.setScore;
-  //   let score = props.value.score;
-
+  let l= props.value.l;
+  let a= props.value.l;
+  
   let SetOpen = props.value.SetOpen;
+  
+  const [see, Setsee] = useState(l);
 
-  //   let count = props.value.count;
-
-  //   let setcount = props.value.setcount;
   const handleScroe = () => {
-    // let s = classes.length;
-    // setcount(count + 1);
-    // let ans = (count / s) * 100;
-    // console.log("ans:", ans);
-    // setScore(ans);
+    
     Setsee(i + 1);
   };
   return (

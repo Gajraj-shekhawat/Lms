@@ -13,6 +13,8 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as Baba } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { signin_post } from '../redux/auth/actions';
 
 function Copyright(props) {
   return (
@@ -30,13 +32,17 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+
+  const dispatch = useDispatch();
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    console.log({
+    let payload = {
       email: data.get('email'),
       password: data.get('password'),
-    });
+    }
+    console.log('payload:', payload)
+    dispatch(signin_post(payload))
   };
 
   return (
@@ -57,7 +63,7 @@ export default function Login() {
           <Typography component="h1" variant="h5">
             Login
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
@@ -67,7 +73,8 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
-              
+              type={"email"}
+
             />
             <TextField
               margin="normal"
