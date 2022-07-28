@@ -1,0 +1,56 @@
+.CourseMainDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5%;
+ margin-top: 3%;
+}
+
+.coursediv {
+  /* border: 1px solid black; */
+
+  height: 350px;
+  width: 300px;
+  border-radius: 20px;
+overflow: hidden;
+box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.6);
+
+cursor: pointer;
+  /* visibility: hidden; */
+}
+.coursediv img {
+  width: 300px;
+
+}
+
+.name {
+  color: #1c1d1f;
+  line-height: 1.2;
+  letter-spacing: -0.02rem;
+  font-size: 1.6rem;
+  /* display: -webkit-box !important; */
+  -webkit-line-clamp: 2;
+  
+  font-weight: 400;
+
+  max-width: 60rem;
+}
+.coursediv h3 {
+  top: 0;
+}
+
+.buttonBuy {
+  
+    display: flex;
+    margin:auto;
+    
+    width: 100px;
+    justify-content: center;
+    background-color: darkgray;
+  border:none;
+  padding:10px;
+      
+}
+.buttonBuy:hover {
+background-color:gray;
+}
