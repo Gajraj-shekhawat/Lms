@@ -1,9 +1,11 @@
-import HomePage from "./pages/HomePage";
+import DeshBoard from "./pages/DeshBoard";
+// import HomePage from "./pages/HomePage";
 
 function App() {
   return (
     <div>
-      <HomePage />
+      {/* <HomePage /> */}
+      <DeshBoard />
     </div>
   );
 }
