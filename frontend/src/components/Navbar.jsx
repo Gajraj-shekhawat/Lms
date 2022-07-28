@@ -7,7 +7,7 @@ const Navbar = () => {
       <div>Logo</div>
       {/* <div>Welcome to new way to Learn</div> */}
       <div className={styles.Register}>
-        <Link to="/login">Login</Link>
+        <Link to="/signin">Login</Link>
       </div>
     </div>
   );

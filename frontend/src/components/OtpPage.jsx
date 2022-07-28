@@ -27,7 +27,7 @@ const OtpPage = ({ length, per_box, otp, setOTP }) => {
 
   return (
     <>
-      {otp && <h3>you can see you otp here: {otp}</h3>}
+      
       <div className={styles.container}>
         {new Array(length).fill("").map((el, index) => (
           <OtpLIst

@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { Link as Baba } from 'react-router-dom'
 
 function Copyright(props) {
   return (
@@ -54,7 +55,7 @@ export default function Login() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Login 
+            Login
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -66,6 +67,7 @@ export default function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              
             />
             <TextField
               margin="normal"
@@ -91,14 +93,17 @@ export default function Login() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
+                <Baba to="#" >
                   Forgot password?
-                </Link>
+                </Baba>
               </Grid>
               <Grid item>
-                <Link href="#" variant="body2">
+                <Baba to="/signup">
+
                   {"Don't have an account? Sign Up"}
-                </Link>
+
+                </Baba>
+
               </Grid>
             </Grid>
           </Box>
