@@ -1,0 +1,76 @@
+.main_container {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: rgb(223, 223, 223);
+}
+
+.conatiner {
+    width: 40%;
+    margin: auto;
+    padding: 40px;
+}
+
+.form>div {
+    margin-top: 10px;
+}
+
+.form button {
+    width: 100px;
+    color: white;
+    background-color: rgb(61, 148, 177);
+    border: none;
+    border-radius: 5px;
+    padding: 8px 1px;
+    font-size: 18px;
+}
+
+.form>div:last-child {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+
+/* otp */
+
+
+
+.containerOtp{
+    width: 500px;
+    margin: auto;
+    text-align: center;
+    padding: 50px;
+}
+.innerpart{
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     */
+box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;    border-radius: 15px;
+    width: 400px;
+    margin: auto;
+    padding: 15px;
+}
+.verifybtn{
+    padding: 15px;
+}
+.verify{
+    padding:10px 35px;
+    background:black;
+    color:white;
+    border-radius: 7px;
+    font-size:18px;
+}
+.errorDiv{
+    display: flex;
+    justify-content:center;
+    place-items: center;
+    gap: 5px;
+}
+.errorDiv>a{
+    text-decoration: none;
+    font-size: 12px;
+}
+.inputotp input{
+    padding: 7px;
+    border-radius: 10px;
+}
