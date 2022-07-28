@@ -2,6 +2,9 @@ import React from "react";
 import style from "../styles/HomePage.module.css";
 
 import Navbar from "../components/Navbar";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 const HomePage = () => {
   var arr = [
     {
@@ -29,10 +32,37 @@ const HomePage = () => {
       img: "https://img-c.udemycdn.com/course/240x135/1743420_0062.jpg",
     },
   ];
-  console.log(arr);
+
+  const set = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    showThumbs: false,
+    showStatus: false,
+  };
+
   return (
     <div>
       <Navbar />
+      <div style={{ height: "380px", marginTop: "40px" }}>
+        <Carousel {...set}>
+          <div className={style.CarouselDiv}>
+            <img
+              src="https://hackr.io/blog/best-java-courses/thumbnail/large"
+              alt=""
+            />
+          </div>
+          <div className={style.CarouselDiv}>
+            <img
+              src="https://res.cloudinary.com/royalrajputana/image/upload/c_scale,h_301,w_762/v1573554951/python_-_Copy.png"
+              alt=""
+            />
+          </div>
+        </Carousel>
+      </div>
       <div className={style.CourseMainDiv}>
         {arr.map((el) => {
           return (
