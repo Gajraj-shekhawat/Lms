@@ -1,13 +1,9 @@
-import HomePage from "./pages/HomePage";
-import SignUp from "./pages/SignUp";
-import Login from "./pages/Login";
 
-
+import AllRoutes from "./routes/AllRoutes";
 function App() {
   return (
     <div>
-      {/* <HomePage /> */}
-      <Login/>
+      <AllRoutes />
     </div>
   );
 }
