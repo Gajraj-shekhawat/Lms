@@ -39,10 +39,27 @@ authRouter.get("/:_id", async (req, res) => {
 });
 authRouter.patch("/:_id", async (req, res) => {
   const { _id } = req.params;
-  const user = await UserModel.findOneAndUpdate(_id, req.body);
+  const user = await UserModel.findByIdAndUpdate(_id, req.body);
   const updated = await UserModel.findById(_id);
 
   res.status(200).send(updated);
 });
 
+authRouter.get("/:_id/progress", async (req, res) => {
+  const { _id } = req.params;
+  const user = await UserModel.find({ _id });
+
+  let lec = 0;
+  let ass = 0;
+  for (let key in user[0]) {
+    if (key[0] == "a" && user[0][key]) {
+      ass++;
+    }
+    if (key[0] == "l" && user[0][key]) {
+      lec++;
+    }
+  }
+
+  res.status(200).send({ lec: lec - 1, ass: ass - 1 });
+});
 module.exports = authRouter;

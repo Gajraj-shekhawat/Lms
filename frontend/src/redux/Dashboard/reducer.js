@@ -5,6 +5,8 @@ const initialState = {
   isError: false,
   userId: JSON.parse(localStorage.getItem("userId")) || null,
   data: null,
+  totalClass: 0,
+  totalassignments: 0,
 };
 
 export const dashboard_Reducer = (state = initialState, { type, payload }) => {
@@ -15,8 +17,17 @@ export const dashboard_Reducer = (state = initialState, { type, payload }) => {
     case dashBoard_Action.SUCCESS1: {
       return { ...state, isLoading: false, data: payload[0] };
     }
+
     case dashBoard_Action.FAILURE: {
       return { ...state, isLoading: false, isError: true };
+    }
+
+    case dashBoard_Action.parcentage: {
+      return {
+        ...state,
+        totalClass: payload.lec,
+        totalassignments: payload.ass,
+      };
     }
     default: {
       return state;

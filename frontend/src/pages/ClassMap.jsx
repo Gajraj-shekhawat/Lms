@@ -5,21 +5,25 @@ import { BsCheckCircle } from "react-icons/bs";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
+import { toggleStatus } from "../redux/Dashboard/actions";
 const ClassMap = (props) => {
-  const { el, i, showClass, setShowClass, ass, lec } = props.value;
+  const {
+    el,
+    i,
+    showClass,
+    setShowClass,
+    ass,
+    lec,
+    assignments,
+    setassignments,
+    showLec,
+    setshowLec,
+  } = props.value;
 
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
 
-  const handleToggle = (i) => {
-    //   axios
-    //     // .patch(`http://localhost:8080/user/signin/${i}`)
-    //     // .then((res) => {
-    //     //   console.log("res:", res);
-    //     // })
-    //     // .catch(() => {});
-  };
   return (
     <div>
       <div className={styles.classDiv}>
@@ -27,21 +31,51 @@ const ClassMap = (props) => {
         <div>
           <IoMdArrowDropdown
             onClick={() => {
-              setShowClass(i);
+              setShowClass((prv) => {
+                if (prv === i) {
+                  return false;
+                } else {
+                  return i;
+                }
+              });
             }}
           />
         </div>
 
         <div>
-          <BsCheckCircle style={{ color: lec ? "green" : "red" }} />
+          {showClass !== i && (
+            <BsCheckCircle
+              style={
+                lec && ass
+                  ? { color: "green" }
+                  : ass || lec
+                  ? { color: "#800040" }
+                  : { color: "red" }
+              }
+            />
+          )}
         </div>
       </div>
       {showClass === i && (
         <div>
           <p
-            style={{ color: "gray", cursor: "pointer" }}
-            onClick={() => handleToggle(i)}
+            style={{
+              color: "gray",
+              cursor: "pointer",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+            onClick={() => {
+              dispatch(toggleStatus("l", lec, i));
+              setshowLec(i);
+              setassignments(false);
+            }}
           >
+            class
+            <BsCheckCircle style={{ color: lec ? "green" : "red" }} />
+          </p>
+          {showLec === i && (
             <video
               className={styles.videoApp}
               src={el.class}
@@ -49,16 +83,45 @@ const ClassMap = (props) => {
               title="video"
               controls
             />
-            class
-          </p>
+          )}
           <p
-            style={{ color: "gray", cursor: "pointer", marginTop: "27px" }}
-            OnClick={() => {
-              navigate("/assignmets");
+            style={{
+              color: "gray",
+              cursor: "pointer",
+              marginTop: "27px",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+            onClick={() => {
+              setassignments(i);
+              setshowLec(false);
             }}
           >
             Assignments
+            <BsCheckCircle style={{ color: ass ? "green" : "red" }} />
           </p>
+          {assignments === i && (
+            <button
+              className={styles.videoApp}
+              style={{
+                width: "fit-content",
+                cursor: "pointer",
+                top: "50%",
+                left: "34%",
+                paddingRight: "1.5rem",
+                paddingLeft: "1.5rem",
+                paddingTop: ".75rem",
+                paddingBottom: ".75rem",
+                borderRadius: "0.375rem",
+                color: "white",
+                background: "rgb(31 41 55)",
+              }}
+              onClick={() => dispatch(toggleStatus("a", ass, i))}
+            >
+              {ass ? "Mark as pending" : "  Mark as done"}
+            </button>
+          )}
         </div>
       )}
     </div>
@@ -66,57 +129,3 @@ const ClassMap = (props) => {
 };
 
 export default ClassMap;
-
-// import React, { useState } from "react";
-// import styles from "../styles/DeshBoard.module.css";
-// import { IoMdArrowDropdown } from "react-icons/io";
-// import { BsCheckCircle } from "react-icons/bs";
-
-// import { Link } from "react-router-dom";
-// const ClassMap = (props) => {
-//   let el = props.value.el;
-//   let i = props.value.i;
-//   let open = props.value.open;
-//   let l = props.value.l;
-//   console.log("l:", l);
-
-//   let SetOpen = props.value.SetOpen;
-
-//   const [see, Setsee] = useState(l);
-
-//   const handleScroe = () => {
-//     Setsee(i + 1);
-//   };
-//   return (
-//     <div onClick={() => SetOpen(i + 1)} style={{ cursor: "pointer" }}>
-//       <div className={styles.classDiv}>
-//         <p>day{i + 1}</p>
-//         <div>
-//           <IoMdArrowDropdown />
-//         </div>
-
-//         <div>
-//           <BsCheckCircle style={{ color: see ? "green" : "black" }} />
-//         </div>
-//       </div>
-//       {open === i + 1 && (
-//         <div style={{ display: open === i + 1 ? "block" : "none" }}>
-//           <p onClick={handleScroe}>
-//             {see === i + 1 && (
-//               <video
-//                 className={styles.videoApp}
-//                 src={el.class}
-//                 allowfullScree
-//                 title="video"
-//                 controls
-//               />
-//             )}
-//             class
-//           </p>
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default ClassMap;

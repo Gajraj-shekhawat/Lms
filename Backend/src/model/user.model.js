@@ -6,7 +6,7 @@ const schema = mongoose.Schema(
     email: { type: String, required: true },
     password: { type: String, required: true },
     course: { type: String, required: true },
-    l1: { type: Boolean, default: true },
+    l1: { type: Boolean, default: false },
     l2: { type: Boolean, default: false },
     l3: { type: Boolean, default: false },
     l4: { type: Boolean, default: false },
