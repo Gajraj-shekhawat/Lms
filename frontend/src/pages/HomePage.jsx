@@ -30,7 +30,7 @@ const HomePage = () => {
       courseTime: "4 Month",
       totleClass: "7",
       price: " ₹449",
-      img: "https://img-c.udemycdn.com/course/240x135/1743420_0062.jpg",
+      img: "https://www.pragimtech.com/wp-content/uploads/2022/07/java-script-360x270.jpg",
     },
   ];
 
@@ -55,13 +55,19 @@ const HomePage = () => {
         <Carousel {...set}>
           <div className={style.CarouselDiv}>
             <img
-              src="https://hackr.io/blog/best-java-courses/thumbnail/large"
+              src="https://www.chandigarhhelp.com/wp-content/uploads/2020/01/Top-Java-Training-Institutes-in-Chandigarh.jpg"
               alt=""
             />
           </div>
           <div className={style.CarouselDiv}>
-            <img
-              src="https://res.cloudinary.com/royalrajputana/image/upload/c_scale,h_301,w_762/v1573554951/python_-_Copy.png"
+            <img className={style.image}
+              src="https://www.wscubetech.com/images/Python-Training.jpg"
+              alt=""
+            />
+          </div>
+          <div className={style.CarouselDiv}>
+            <img className={style.image}
+              src="https://www.bbvaapimarket.com/wp-content/uploads/2016/01/bbva-open4u-javascript.jpg"
               alt=""
             />
           </div>
