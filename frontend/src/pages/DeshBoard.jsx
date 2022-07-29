@@ -20,6 +20,7 @@ const DeshBoard = () => {
 
   const dispatch = useDispatch();
   const store = useSelector((store) => store.dashboard);
+  const [showTable, setShowTable] = useState(true);
 
   let arr =
     store?.data?.course === "Java"
@@ -62,6 +63,7 @@ const DeshBoard = () => {
                     setShowClass,
                     lec: store?.data[`l${i + 1}`],
                     ass: store?.data[`a${i + 1}`],
+                    setShowTable
                   }}
                 />
               </div>
@@ -79,21 +81,27 @@ const DeshBoard = () => {
               fontSize: "27px",
             }}
           >
-            <table border="1">
-              <thead>
-                <tr>
-                  <th>Total Assignments Submission</th>
+            {showTable && (
+              <table>
+                <thead>
+                  <tr>
+                    <th>Total Assignments Submission</th>
 
-                  <th>Total Classes Watched</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{(store?.totalassignments / 5) * 100} %</td>
-                  <td>{(store?.totalClass / 5) * 100} %</td>
-                </tr>
-              </tbody>
-            </table>
+                    <th>Total Classes Watched</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>{(store?.totalassignments / 5) * 100} %</td>
+                    <td>{(store?.totalClass / 5) * 100} %</td>
+                  </tr>
+                </tbody>
+              </table>
+            )}
           </div>
         </div>
       </div>

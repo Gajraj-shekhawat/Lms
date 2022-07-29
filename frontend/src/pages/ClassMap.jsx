@@ -18,11 +18,10 @@ const ClassMap = (props) => {
     setassignments,
     showLec,
     setshowLec,
+    setShowTable,
   } = props.value;
 
   const dispatch = useDispatch();
-
-  const navigate = useNavigate();
 
   return (
     <div>
@@ -44,6 +43,9 @@ const ClassMap = (props) => {
                 } else {
                   return i;
                 }
+              });
+              setShowTable((prev) => {
+                return !prev;
               });
             }}
           />
@@ -77,6 +79,7 @@ const ClassMap = (props) => {
               dispatch(toggleStatus("l", lec, i));
               setshowLec(i);
               setassignments(false);
+              setShowTable(false);
             }}
           >
             {el.name}
@@ -103,6 +106,7 @@ const ClassMap = (props) => {
             onClick={() => {
               setassignments(i);
               setshowLec(false);
+              setShowTable(false);
             }}
           >
             Assignments

@@ -13,9 +13,10 @@ import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useParams, useNavigate } from "react-router-dom";
 import { signup_post } from "../redux/Auth/actions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { Link as Baba } from "react-router-dom";
+import Loader from "../components/Loader"
 function Copyright(props) {
   return (
     <Typography
@@ -40,7 +41,7 @@ export default function SignUp() {
   const { course } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  const { isLoading } = useSelector((store) => store.auth);
   const [showError, setShowError] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -55,6 +56,9 @@ export default function SignUp() {
     dispatch(signup_post(payload, navigate, setShowError));
   };
 
+  if (isLoading) {
+    return <Loader />
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">

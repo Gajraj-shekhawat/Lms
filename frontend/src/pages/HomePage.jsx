@@ -6,34 +6,10 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
+import arr from "../Data/course.json"
 
 const HomePage = () => {
-  var arr = [
-    {
-      name: "Java",
-      dis: "Start your coding career and become an industry-ready java in India's ever-growing technology job market.",
-      courseTime: "3 Month",
-      totleClass: "7",
-      price: "₹349",
-      img: "https://img-b.udemycdn.com/course/240x135/3740582_cc2c_7.jpg",
-    },
-    {
-      name: "Learn Python",
-      dis: "Start your coding career and become an industry-ready pyton in India's ever-growing technology job market.",
-      courseTime: "1 Month",
-      totleClass: "7",
-      price: "₹249",
-      img: "https://img-c.udemycdn.com/course/240x135/394676_ce3d_5.jpg",
-    },
-    {
-      name: "Java Script",
-      dis: "Start your coding career and become an industry-ready Full Stack Web Developer in India's ever-growing technology job market.",
-      courseTime: "4 Month",
-      totleClass: "7",
-      price: " ₹449",
-      img: "https://www.pragimtech.com/wp-content/uploads/2022/07/java-script-360x270.jpg",
-    },
-  ];
+
 
   const set = {
     dots: true,

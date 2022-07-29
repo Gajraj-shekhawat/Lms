@@ -13,8 +13,9 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Link as Baba, Navigate, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signin_post } from "../redux/Auth/actions";
+import Loader from "../components/Loader"
 
 function Copyright(props) {
   return (
@@ -38,6 +39,8 @@ const theme = createTheme();
 
 export default function Login() {
   const [showError, setShowError] = React.useState(false);
+  const {isLoading} = useSelector((store) => store.auth);
+ 
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -57,6 +60,9 @@ export default function Login() {
 
   if (JSON.parse(localStorage.getItem("status"))) {
     return <Navigate to="/dashboard" replace />;
+  }
+  if(isLoading){
+    return <Loader/>
   }
   return (
     <ThemeProvider theme={theme}>

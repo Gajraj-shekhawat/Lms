@@ -20,10 +20,11 @@ const Navbar = () => {
       <div className={styles.head}>Think Twice CODE Once!</div>
       <div className={styles.Register}>
         {JSON.parse(localStorage.getItem("status")) ? (
-          <Link to="#">
+          <>
             <button className={styles.btn}>
               {JSON.parse(localStorage.getItem("userName"))}
             </button>
+
             <Link
               to="#"
               className={styles.btn}
@@ -35,7 +36,7 @@ const Navbar = () => {
             >
               Logout
             </Link>
-          </Link>
+          </>
         ) : (
           <Link to="/signin">
             <button className={styles.btn}>Login</button>

@@ -15,15 +15,15 @@ export const authReducer = (state = initialState, { type, payload }) => {
     case authAction.SUCCESS: {
       if (!localStorage.getItem("userId")) {
         localStorage.setItem("userId", JSON.stringify(payload));
-        // localStorage.setItem("userId", JSON.stringify(payload));
-
         localStorage.setItem("status", JSON.stringify(true));
       }
-
       return { ...state, isLoading: false, status: true };
     }
     case authAction.FAILURE: {
       return { ...state, isLoading: false, isError: true };
+    }
+    case authAction.STOP_LOADER: {
+      return { ...state, isLoading: false, isError: false };
     }
     default: {
       return state;
