@@ -13,7 +13,6 @@ export const dashboard_Reducer = (state = initialState, { type, payload }) => {
       return { ...state, isLoading: true };
     }
     case dashBoard_Action.SUCCESS1: {
-      console.log(payload);
       return { ...state, isLoading: false, data: payload[0] };
     }
     case dashBoard_Action.FAILURE: {

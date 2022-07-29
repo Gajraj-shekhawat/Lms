@@ -2,13 +2,23 @@ import React, { useState } from "react";
 import styles from "../styles/DeshBoard.module.css";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { BsCheckCircle } from "react-icons/bs";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
 const ClassMap = (props) => {
   const { el, i, showClass, setShowClass, ass, lec } = props.value;
 
-  const handleToggle = () => {
-    axios.patch("");
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+  const handleToggle = (i) => {
+    //   axios
+    //     // .patch(`http://localhost:8080/user/signin/${i}`)
+    //     // .then((res) => {
+    //     //   console.log("res:", res);
+    //     // })
+    //     // .catch(() => {});
   };
   return (
     <div>
@@ -30,7 +40,7 @@ const ClassMap = (props) => {
         <div>
           <p
             style={{ color: "gray", cursor: "pointer" }}
-            onClick={handleToggle}
+            onClick={() => handleToggle(i)}
           >
             <video
               className={styles.videoApp}
@@ -41,7 +51,12 @@ const ClassMap = (props) => {
             />
             class
           </p>
-          <p style={{ color: "gray", cursor: "pointer", marginTop: "27px" }}>
+          <p
+            style={{ color: "gray", cursor: "pointer", marginTop: "27px" }}
+            OnClick={() => {
+              navigate("/assignmets");
+            }}
+          >
             Assignments
           </p>
         </div>

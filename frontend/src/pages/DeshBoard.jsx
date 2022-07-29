@@ -45,7 +45,6 @@ const DeshBoard = () => {
 
   const dispatch = useDispatch();
   const store = useSelector((store) => store.dashboard);
-  console.log("store:", store);
 
   useEffect(() => {
     if (x) {
