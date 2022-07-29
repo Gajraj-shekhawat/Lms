@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
 
 const HomePage = () => {
   var arr = [
@@ -99,6 +100,7 @@ const HomePage = () => {
           );
         })}
       </div>
+      <Footer/>
     </div>
   );
 };
