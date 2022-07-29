@@ -3,6 +3,7 @@ export const authAction = {
   REQUEST: "REQUEST",
   SUCCESS: "SUCCESS",
   FAILURE: "FAILURE",
+  STOP_LOADER: "STOP_LOADER",
 };
 
 export const signup_request = () => ({
@@ -17,6 +18,9 @@ export const signup_success = (payload) => ({
 export const signup_failure = () => ({
   type: authAction.FAILURE,
 });
+export const stopLoader = () => ({
+  type: authAction.STOP_LOADER,
+});
 
 export const signup_post = (payload, navigate, setShowError) => (dispatch) => {
   dispatch(signup_request());
@@ -25,6 +29,7 @@ export const signup_post = (payload, navigate, setShowError) => (dispatch) => {
     .then(({ data }) => {
       if (data.message === "User already exist") {
         setShowError(true);
+        dispatch(stopLoader())
       } else {
         dispatch(signup_success(data.success._id));
         navigate("/payment");

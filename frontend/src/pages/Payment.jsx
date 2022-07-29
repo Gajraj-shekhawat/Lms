@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import styles from "../styles/payment.module.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { IoMdLock } from "react-icons/io";
 import { MdOutlineSendToMobile } from "react-icons/md";
 import OtpPage from "../components/OtpPage";
@@ -15,49 +15,62 @@ const Payment = () => {
     e.preventDefault();
     setShowOtp(true);
   };
+  // const navigate = useNavigate();
+
+  // const otpvalidator = () => {
+  //   if (OTP.length === 4) {
+  //     navigate("/dashboard");
+  //   }
+  // };
+
+  if (OTP.length === 4) {
+    return <Navigate to="/dashboard" />;
+  }
   return (
     <div className={styles.main_container}>
       <div className={styles.conatiner}>
-        { !showOtp&& <form className={styles.form} onSubmit={handleSubmit}>
-          <div>
-            <TextField
-              id="outlined-basic"
-              label="Card Number"
-              variant="outlined"
-              fullWidth
-              required
-              type="text"
-            />
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <TextField
-              id="outlined-basic"
-              label="Expiry date"
-              variant="outlined"
-              required
-            />
-            <TextField
-              required
-              id="outlined-basic"
-              label="CVV"
-              variant="outlined"
-              type="number"
-            />
-          </div>
-          <div>
-            <TextField
-              id="outlined-basic"
-              label="Name on Card"
-              variant="outlined"
-              fullWidth
-              required
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <div>
-            <button type="submit">SUBMIT</button>
-          </div>
-        </form>}
+        {!showOtp && (
+          <form className={styles.form} onSubmit={handleSubmit}>
+            <div>
+              <TextField
+                id="outlined-basic"
+                label="Card Number"
+                variant="outlined"
+                fullWidth
+                required
+                type="text"
+              />
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <TextField
+                id="outlined-basic"
+                label="Expiry date"
+                variant="outlined"
+                required
+              />
+              <TextField
+                required
+                id="outlined-basic"
+                label="CVV"
+                variant="outlined"
+                type="number"
+              />
+            </div>
+            <div>
+              <TextField
+                id="outlined-basic"
+                label="Name on Card"
+                variant="outlined"
+                fullWidth
+                required
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div>
+              <button type="submit">SUBMIT</button>
+            </div>
+          </form>
+        )}
         {showOtp && (
           <div>
             <div className={styles.containerOtp}>
@@ -89,9 +102,9 @@ const Payment = () => {
                   <Link to="#">Update here</Link>
                 </div>
                 <div className={styles.verifybtn}>
-                  <Link to="/dashboard">
-                    <button className={styles.verify}>Verify</button>
-                  </Link>
+                  {/* <button onClick={otpvalidator} className={styles.verify}>
+                      Verify
+                    </button> */}
                 </div>
               </div>
             </div>
