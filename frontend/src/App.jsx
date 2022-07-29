@@ -1,6 +1,5 @@
 
-import DashBoardNavbar from "./components/DashBoardNav";
-import DeshBoard from "./pages/DeshBoard";
+
 import AllRoutes from "./routes/AllRoutes";
 function App() {
   return (
