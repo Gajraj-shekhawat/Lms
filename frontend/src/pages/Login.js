@@ -26,7 +26,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        Tiranga
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -99,7 +99,7 @@ export default function Login() {
               autoComplete="current-password"
             />
             <br></br>
-            {showError && <span>Wrong credentials</span>}
+            {showError && <span style={{ color: "red" }}>Wrong credentials</span>}
             <br></br>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}

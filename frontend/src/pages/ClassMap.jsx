@@ -67,7 +67,7 @@ const ClassMap = (props) => {
         <div>
           <p
             style={{
-              color: "gray",
+              color: "#183962",
               cursor: "pointer",
               display: "flex",
               justifyContent: "space-between",
@@ -93,7 +93,7 @@ const ClassMap = (props) => {
           )}
           <p
             style={{
-              color: "gray",
+              color: "#183962",
               cursor: "pointer",
               marginTop: "27px",
               display: "flex",

@@ -118,7 +118,7 @@ export default function SignUp() {
                 />
               </Grid>
               <br></br>
-              {showError && <span>User already exist</span>}
+              {showError && <span style={{ color: "red" }}>User already exist</span>}
               <br></br>
               <Grid item xs={12}>
                 {/* <FormControlLabel

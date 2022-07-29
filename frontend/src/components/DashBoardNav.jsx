@@ -4,9 +4,15 @@ import { Link } from "react-router-dom";
 const DashBoardNavbar = ({ name, course }) => {
   return (
     <div className={styles.nav}>
-      <div>Logo</div>
       <div>
-        <h4 style={{ color: "red" }}>Course Name: {course}</h4>
+      <img
+          className={styles.tir}
+          src="https://cdn.dribbble.com/users/1997933/screenshots/9179992/media/ac886a84b6ae93ab9fcc3a21ec468d7f.jpg?compress=1&resize=950x300"
+          alt="1"
+        />
+      </div>
+      <div>
+        <h4 style={{ color: "#ff9400", fontWeight: "bold" }}>Course Name: {course}</h4>
       </div>
       <div className={styles.Register}>
         <div>
@@ -19,7 +25,7 @@ const DashBoardNavbar = ({ name, course }) => {
             }}
             to="/"
           >
-            Logout
+            <button className={styles.btn}>Logout</button>
           </Link>
         </div>
       </div>
