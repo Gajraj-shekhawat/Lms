@@ -86,7 +86,7 @@ const ClassMap = (props) => {
             <video
               className={styles.videoApp}
               src={el.class}
-              allowfullScree
+              // allowfullScree
               title="video"
               controls
             />

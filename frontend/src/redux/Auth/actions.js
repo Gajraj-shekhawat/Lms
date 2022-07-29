@@ -27,7 +27,7 @@ export const signup_post = (payload, navigate, setShowError) => (dispatch) => {
         setShowError(true);
       } else {
         dispatch(signup_success(data.success._id));
-        navigate("/dashboard");
+        navigate("/payment");
       }
     })
     .catch(() => {

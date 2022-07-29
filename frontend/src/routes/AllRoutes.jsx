@@ -12,7 +12,6 @@ const AllRoutes = () => {
       <Route path="/payment" element={<Payment />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/signin" element={<Login />} />
-      {/* <Route path="/signup" element={<SignUp />} /> */}
       <Route path="/signup/:course" element={<SignUp />} />
       <Route path="/dashboard" element={<DeshBoard />} />
     </Routes>

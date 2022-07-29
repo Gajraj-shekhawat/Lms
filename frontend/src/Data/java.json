@@ -1,27 +1,27 @@
- [
-    {
-      "class":
-        "https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/31010/saPXCiBxjCj8cxFFu2kthzx6AAq2dT46Kc9cGoDL.mp4",
-      "assignments": ""
-    },
-    {
-      "class":
-        "https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/27139/ZclH1gfUiBDEHKBb1zMYRo7DC2ioZ0EXvXDXv9yJ.mp4",
-      "assignments": ""
-    },
-    {
-      "class":
-        "https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/31010/saPXCiBxjCj8cxFFu2kthzx6AAq2dT46Kc9cGoDL.mp4",
-      "assignments": ""
-    },
-    {
-      "class":
-        "https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/31010/saPXCiBxjCj8cxFFu2kthzx6AAq2dT46Kc9cGoDL.mp4",
-      "assignments": ""
-    },
-    {
-      "class":
-        "https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/31010/saPXCiBxjCj8cxFFu2kthzx6AAq2dT46Kc9cGoDL.mp4",
-      "assignments": ""
-    }
-  ]
+[
+  {
+    "class": "https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/31010/saPXCiBxjCj8cxFFu2kthzx6AAq2dT46Kc9cGoDL.mp4",
+    "assignments": "",
+    "name": "Java-1"
+  },
+  {
+    "class": "https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/27139/ZclH1gfUiBDEHKBb1zMYRo7DC2ioZ0EXvXDXv9yJ.mp4",
+    "assignments": "",
+    "name": "Java-2"
+  },
+  {
+    "class": "https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/31010/saPXCiBxjCj8cxFFu2kthzx6AAq2dT46Kc9cGoDL.mp4",
+    "assignments": "",
+    "name": "Java-3"
+  },
+  {
+    "class": "https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/31010/saPXCiBxjCj8cxFFu2kthzx6AAq2dT46Kc9cGoDL.mp4",
+    "assignments": "",
+    "name": "Java-3"
+  },
+  {
+    "class": "https://masai-course.s3.ap-south-1.amazonaws.com/material/videos/31010/saPXCiBxjCj8cxFFu2kthzx6AAq2dT46Kc9cGoDL.mp4",
+    "assignments": "",
+    "name": "Java-3"
+  }
+]
