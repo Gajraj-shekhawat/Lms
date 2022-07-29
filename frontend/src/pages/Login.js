@@ -12,7 +12,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Link as Baba } from "react-router-dom";
+import { Link as Baba, Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { signin_post } from "../redux/Auth/actions";
 
@@ -37,18 +37,27 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Login() {
+  const [showError, setShowError] = React.useState(false);
+
+  const navigate = useNavigate();
   const dispatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    localStorage.removeItem("userId");
+
     const data = new FormData(event.currentTarget);
     let payload = {
       email: data.get("email"),
       password: data.get("password"),
     };
 
-    dispatch(signin_post(payload));
+    dispatch(signin_post(payload, navigate, setShowError));
   };
 
+  if (JSON.parse(localStorage.getItem("status"))) {
+    return <Navigate to="/dashboard" replace />;
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -89,10 +98,14 @@ export default function Login() {
               id="password"
               autoComplete="current-password"
             />
+            <br></br>
+            {showError && <span>Wrong credentials</span>}
+            <br></br>
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
               label="Remember me"
             />
+
             <Button
               type="submit"
               fullWidth
@@ -106,7 +119,7 @@ export default function Login() {
                 <Baba to="#">Forgot password?</Baba>
               </Grid>
               <Grid item>
-                <Baba to="/signup">{"Don't have an account? Sign Up"}</Baba>
+                <Baba to="/">{"Don't have an account? Sign Up"}</Baba>
               </Grid>
             </Grid>
           </Box>

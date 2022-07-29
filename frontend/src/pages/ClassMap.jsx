@@ -26,8 +26,15 @@ const ClassMap = (props) => {
 
   return (
     <div>
-      <div className={styles.classDiv}>
-        <p>day{i + 1}</p>
+      <div
+        className={styles.classDiv}
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <p>Day {i + 1}</p>
         <div>
           <IoMdArrowDropdown
             onClick={() => {
@@ -72,7 +79,7 @@ const ClassMap = (props) => {
               setassignments(false);
             }}
           >
-            class
+            {el.name}
             <BsCheckCircle style={{ color: lec ? "green" : "red" }} />
           </p>
           {showLec === i && (

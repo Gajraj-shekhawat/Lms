@@ -15,6 +15,7 @@ export const dashboard_Reducer = (state = initialState, { type, payload }) => {
       return { ...state, isLoading: true };
     }
     case dashBoard_Action.SUCCESS1: {
+      localStorage.setItem("userName", JSON.stringify(payload[0].name));
       return { ...state, isLoading: false, data: payload[0] };
     }
 

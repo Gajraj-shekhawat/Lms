@@ -3,8 +3,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
+
 import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -15,7 +14,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useParams, useNavigate } from "react-router-dom";
 import { signup_post } from "../redux/Auth/actions";
 import { useDispatch } from "react-redux";
-
+import { useState } from "react";
+import { Link as Baba } from "react-router-dom";
 function Copyright(props) {
   return (
     <Typography
@@ -25,9 +25,9 @@ function Copyright(props) {
       {...props}
     >
       {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{" "}
+      <Baba color="inherit" to="#">
+        Tiranga
+      </Baba>
       {new Date().getFullYear()}
       {"."}
     </Typography>
@@ -41,6 +41,7 @@ export default function SignUp() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const [showError, setShowError] = useState(false);
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -51,8 +52,7 @@ export default function SignUp() {
     let password = data.get("password");
 
     let payload = { email, password, name: firstName + " " + lastName, course };
-    dispatch(signup_post(payload));
-    navigate("/dashboard");
+    dispatch(signup_post(payload, navigate, setShowError));
   };
 
   return (
@@ -117,6 +117,9 @@ export default function SignUp() {
                   autoComplete="new-password"
                 />
               </Grid>
+              <br></br>
+              {showError && <span>User already exist</span>}
+              <br></br>
               <Grid item xs={12}>
                 {/* <FormControlLabel
                   control={<Checkbox value="allowExtraEmails" color="primary" />}
@@ -134,9 +137,9 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Baba to="/signin" variant="body2">
                   Already have an account? Login
-                </Link>
+                </Baba>
               </Grid>
             </Grid>
           </Box>

@@ -15,6 +15,7 @@ const DashBoardNavbar = ({ name, course }) => {
           <Link
             onClick={() => {
               localStorage.removeItem("userId");
+              localStorage.setItem("status", false);
             }}
             to="/"
           >

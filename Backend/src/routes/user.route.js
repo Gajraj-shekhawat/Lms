@@ -7,14 +7,14 @@ authRouter.post("/signup", async (req, res) => {
 
   const varify = await UserModel.find({ email });
   if (varify.length > 0) {
-    return res.status(300).send({ message: "User already exist" });
+    return res.send({ message: "User already exist" });
   }
   const user = await UserModel(req.body);
   user.save((err, success) => {
     if (err) {
-      return res.status(500).send({ message: err.message });
+      return res.send({ message: err.message });
     }
-    return res.status(201).send({
+    return res.send({
       message: "Congratulations your account has been created",
       success,
     });
