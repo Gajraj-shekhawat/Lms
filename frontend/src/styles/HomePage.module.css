@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10%;
+  gap: 5%;
  margin-top: 3%;
 
 }
@@ -17,10 +17,15 @@ overflow: hidden;
 box-shadow: inset 0px 0px 2px 0px rgba(0, 0, 0, 0.6);
 
 
+
   /* visibility: hidden; */
 
   margin-bottom: 30px;
 }
+.coursediv:hover{
+padding:1%;
+}
+
 .coursediv img {
   width: 350px;
   height: 200px;
