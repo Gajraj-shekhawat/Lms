@@ -5,6 +5,8 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { IoMdLock } from "react-icons/io";
 import { MdOutlineSendToMobile } from "react-icons/md";
 import OtpPage from "../components/OtpPage";
+import Footer from "../components/Footer";
+
 const Payment = () => {
   const num = 4444;
   const [OTP, setOTP] = useState("");
@@ -27,7 +29,10 @@ const Payment = () => {
     return <Navigate to="/dashboard" />;
   }
   return (
+    <>
+    
     <div className={styles.main_container}>
+      
       <div className={styles.conatiner}>
         {!showOtp && (
           <form className={styles.form} onSubmit={handleSubmit}>
@@ -111,7 +116,10 @@ const Payment = () => {
           </div>
         )}
       </div>
+      
     </div>
+    <Footer/>
+    </>
   );
 };
 

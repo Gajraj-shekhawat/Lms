@@ -33,7 +33,7 @@ const ClassMap = (props) => {
           alignItems: "center",
         }}
       >
-        <p>Day {i + 1}</p>
+        <p style={{marginTop:"18px"}}>Day {i + 1}</p>
         <div>
           <IoMdArrowDropdown
             onClick={() => {

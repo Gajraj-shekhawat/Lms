@@ -84,7 +84,7 @@ const DeshBoard = () => {
             {showTable && (
               <table>
                 <thead>
-                  <tr>
+                  <tr >
                     <th>Total Assignments Submission</th>
 
                     <th>Total Classes Watched</th>
