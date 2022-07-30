@@ -45,7 +45,6 @@ export const signin_post = (payload, navigate, setShowError) => (dispatch) => {
   axios
     .post("https://lms-backend-masai.herokuapp.com/user/signin", payload)
     .then((res) => {
-      // console.log("res:", res.data);
       if (res.data.message === "Wrong credentials") {
         setShowError(true);
         dispatch(stopLoader())
