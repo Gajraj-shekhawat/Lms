@@ -25,7 +25,7 @@ export const stopLoader = () => ({
 export const signup_post = (payload, navigate, setShowError) => (dispatch) => {
   dispatch(signup_request());
   axios
-    .post("http://localhost:8080/user/signup", payload)
+    .post("https://lms-backend-masai.herokuapp.com/user/signup", payload)
     .then(({ data }) => {
       if (data.message === "User already exist") {
         setShowError(true);
@@ -43,7 +43,7 @@ export const signup_post = (payload, navigate, setShowError) => (dispatch) => {
 export const signin_post = (payload, navigate, setShowError) => (dispatch) => {
   dispatch(signup_request());
   axios
-    .post("http://localhost:8080/user/signin", payload)
+    .post("https://lms-backend-masai.herokuapp.com/user/signin", payload)
     .then((res) => {
       // console.log("res:", res.data);
       if (res.data.message === "Wrong credentials") {

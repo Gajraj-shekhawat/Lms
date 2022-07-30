@@ -26,7 +26,7 @@ export const parcentage = (payload) => ({
 
 export const userData = (userId) => (dispatch) => {
   axios
-    .get(`http://localhost:8080/user/${userId}`)
+    .get(`https://lms-backend-masai.herokuapp.com/user/${userId}`)
     .then((res) => {
       dispatch(dashboard_success1(res.data));
     })
@@ -45,7 +45,7 @@ export const toggleStatus = (key, value, i) => (dispatch) => {
   };
 
   axios
-    .patch(`http://localhost:8080/user/${x}`, payload)
+    .patch(`https://lms-backend-masai.herokuapp.com/user/${x}`, payload)
     .then((res) => {
       dispatch(userData(x));
       dispatch(getPersentange(x));
@@ -54,7 +54,7 @@ export const toggleStatus = (key, value, i) => (dispatch) => {
 };
 
 export const getPersentange = (id) => (dispatch) => {
-  axios.get(`http://localhost:8080/user/${id}/progress`).then((res) => {
+  axios.get(`https://lms-backend-masai.herokuapp.com/user/${id}/progress`).then((res) => {
     dispatch(parcentage(res.data));
   });
 };
