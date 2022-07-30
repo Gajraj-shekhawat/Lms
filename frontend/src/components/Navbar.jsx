@@ -1,12 +1,8 @@
-import React, { useEffect, useState } from "react";
 import styles from "../styles/navbar.module.css";
-import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+
 const Navbar = () => {
-  let store = "user";
-
-  // store= useSelector((res)=>res.dashboard.data.name)
-
+  const navigate = useNavigate();
   return (
     <div className={styles.nav}>
       <div className={styles.navlogo}>
@@ -21,7 +17,12 @@ const Navbar = () => {
       <div className={styles.Register}>
         {JSON.parse(localStorage.getItem("status")) ? (
           <>
-            <button className={styles.btn}>
+            <button
+              className={styles.btn}
+              onClick={() => {
+                navigate("/dashboard");
+              }}
+            >
               {JSON.parse(localStorage.getItem("userName"))}
             </button>
 

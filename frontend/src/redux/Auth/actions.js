@@ -48,6 +48,7 @@ export const signin_post = (payload, navigate, setShowError) => (dispatch) => {
       // console.log("res:", res.data);
       if (res.data.message === "Wrong credentials") {
         setShowError(true);
+        dispatch(stopLoader())
       } else {
         dispatch(signup_success(res.data));
         navigate("/dashboard");
