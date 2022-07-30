@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import styles from "../styles/payment.module.css";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { IoMdLock } from "react-icons/io";
 import { MdOutlineSendToMobile } from "react-icons/md";
 import OtpPage from "../components/OtpPage";
